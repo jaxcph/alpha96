@@ -1,0 +1,23 @@
+
+* {
+    /* height: 100%; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+}
+
+body {
+    width: 100%;
+    min-height:100%;
+    background: black;
+    background-attachment: fixed;
+    background-size: cover; 
+    font-family: "Open Sans", sans-serif;
+}
+
+app-root {
+    display: flex;
+    /* flex-direction: column; */
+}

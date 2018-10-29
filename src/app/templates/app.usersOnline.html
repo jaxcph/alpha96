@@ -1,0 +1,26 @@
+<div class="userListWrapper">
+  <div class="card-body">
+
+    <h4 class="card-title">Users list</h4>
+    <p class="card-text">Your are <strong>{{ce.me.state.username}}</strong> 
+      <br> with uuid {{ce.me.uuid}}</p>
+
+    <br/>
+
+   
+
+    <app-user-input (onChanged)="search($event)"> </app-user-input>
+    
+      <br/>
+
+      <app-user-list > </app-user-list>
+
+    <!-- <ul id="online-list" class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let user of getUsers(ce.chat.users)">
+        <a href="" *ngIf="!user.hideWhileSearch" (click)="directChat(user)">{{user.state.username}}</a>
+      </li>
+    </ul> -->
+   
+ 
+  </div>
+</div>

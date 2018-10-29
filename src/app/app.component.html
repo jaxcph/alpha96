@@ -1,0 +1,58 @@
+
+<div class="mainContent">
+  
+   
+      <!-- Container for sidebar(s) + page content -->
+      <ng-sidebar-container
+         (onBackdropClicked)="_onBackdropClicked()">
+
+            <!-- A sidebar -->
+         <ng-sidebar 
+            [(opened)]="_opened"
+            [mode]="_MODES[_modeNum]"
+            [keyClose]="_keyClose"
+            [position]="_POSITIONS[_positionNum]"
+            [dock]="_dock"
+            [dockedSize]="'50px'"
+            [autoCollapseHeight]="_autoCollapseHeight"
+            [autoCollapseWidth]="_autoCollapseWidth"
+            [closeOnClickOutside]="_closeOnClickOutside"
+            [closeOnClickBackdrop]="_closeOnClickBackdrop"
+            [showBackdrop]="_showBackdrop"
+            [animate]="_animate"
+            [trapFocus]="_trapFocus"
+            [autoFocus]="_autoFocus"
+            [sidebarClass]="'jk-sidebar'"
+            [ariaLabel]="'jkChat'"
+            (onOpenStart)="_onOpenStart()"
+            (onOpened)="_onOpened()"
+            (onCloseStart)="_onCloseStart()"
+            (onClosed)="_onClosed()"
+            (onTransitionEnd)="_onTransitionEnd()"
+            >
+
+            <button (click)="_toggleSidebar()">Toggle sidebar</button>
+            <button (click)="_toggleMode()">Toggle mode</button>
+                  
+                  <div class="feedWrapper">
+                        <app-chats></app-chats>
+                  </div>
+
+                  <div class="userListWrapper">
+                        <app-usersOnline></app-usersOnline>
+                  </div>
+            </ng-sidebar>
+
+            <!-- Page content -->
+            <div ng-sidebar-content>
+                  <div class="videoWrapper">
+                        <app-video-player></app-video-player>
+                  </div>
+
+            </div>
+
+      </ng-sidebar-container>
+  
+
+</div>
+

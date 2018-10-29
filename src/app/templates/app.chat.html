@@ -1,0 +1,92 @@
+
+
+<div class="chat-room">
+
+
+  <div class="chat-header ">
+
+    
+    <a href="" class="close" (click)="leave()">x</a>
+    <!-- {{chat.channel}}            -->
+    
+    
+  </div>
+  
+
+
+
+
+<!-- 
+  <div *ngIf='chat.isPrivate' class="card-body">
+
+    <ul class="list-group list-group-flush online-list-sub">
+    
+      <li class="list-group-item" *ngFor="let user of getUsers(chat.users)"
+          ng-hide="user.hideWhileSearch">
+        {{user.state.username}}
+        <span *ngIf="user.isTyping">is typing...</span>
+      </li>
+
+    </ul>
+    
+    
+      <h6>Add a user to this chat</h6>
+        <div ng-submit="searchFromGlobal()">
+          <div class="input-group">
+            <input type="text" class="form-control message"
+                  placeholder="Add User" (ngModelChange)="search()" [(ngModel)]="mysearch"/>
+          </div>
+        </div>
+
+        <ul class="list-group list-group-flush online-list-sub">
+          <li class="list-group-item" *ngFor="let user of users">
+            <a href="" (click)="invite(user)">{{user.state.username}}</a>
+          </li>
+        </ul>
+
+  </div> 
+-->
+
+
+
+  <!-- <p class="typing text-muted"></p> -->
+
+
+  <div #scroller class="chat-container" >
+
+    <div *ngFor="let message of messages "  class="chat-message" [ngClass]="{'text-right ': !message.isSelf}">
+      <a class="text-muted" [ngClass]="{'d-none': message.sameUser}"
+      >{{message.sender.state.username}}</a>
+      
+      <p>{{message.data.text}}</p>
+    </div>
+    
+  </div>
+    
+
+
+  <form class="chat-form" (submit)="send()">
+    <mat-form-field class="two-third ">
+
+        <textarea matInput  name="something"
+        class="white-icon"
+          placeholder="Your Message..."
+           [(ngModel)]="message"
+            (ngModelChange)="chat.typingIndicator.startTyping()"
+              (keyup.enter)="send()"
+        ></textarea>  
+        
+    </mat-form-field>
+
+    <button  class="one-third" mat-button *ngIf="message"  type="submit" (click)="send()">
+        <mat-icon class="white-icon">send</mat-icon>
+    </button>
+
+  </form>
+
+
+</div>
+
+
+
+ 
